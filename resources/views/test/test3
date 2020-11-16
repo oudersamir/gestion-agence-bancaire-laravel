@@ -1,0 +1,21 @@
+ @foreach($listclient as $cl)
+            <tr>
+                <td> {{$cl->nom}}</td>
+                <td> {{$cl->prenom}}</td>
+                <td> {{$cl->tel}}</td>
+                <td> {{$cl->cin}}</td> 
+                <td> {{$cl->adresse}}</td> 
+                <td> {{$cl->email}}</td> 
+               <td>   </td> 
+
+                <td> 
+                    
+                     <form action="{{url('Clients/'.$cl->id_client)}}" method="post">
+                      {{csrf_field()}}
+                      {{method_field('DELETE')}}
+                     <a href="{{url('Clients/'.$cl->id_client.'/Edit_Client')}}"  class="btn btn-success">Editer</a>
+                     <button type="submit"  class="btn btn-danger">Supprimer</button>
+                     </form>
+                </td> 
+            </tr>
+            @endforeach
